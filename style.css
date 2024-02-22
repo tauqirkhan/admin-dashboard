@@ -1,0 +1,47 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/*  */
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template: 
+        [row1-start] "sidebar header" 1fr [row1-end]
+        [row2-start] "sidebar main" 5fr [row2-end]
+        / 1fr 4fr;
+}
+
+.main, .sidebar, .header {
+    border:3px solid red;
+}
+
+.sidebar {
+    background-color: lightblue;
+    grid-area: sidebar;
+}
+
+.header{
+    background-color: white;
+    grid-area: header;
+}
+
+.main{
+    background-color: lightgray;
+    grid-area: main;
+}
