@@ -22,21 +22,18 @@ body {
     width: 100vw;
     display: grid;
     grid-template: 
-        [row1-start] "sidebar header" 1fr [row1-end]
-        [row2-start] "sidebar main" 5fr [row2-end]
-        / 1fr 4fr;
+        [row1-start] "sidebar header" 17% [row1-end]
+        [row2-start] "sidebar main" 83% [row2-end]
+        / 20% 80%;
 }
 
-.main, .sidebar, .header {
-    border:3px solid red;
-}
 
 .sidebar {
-    background-color: darkcyan;
+    background-color: #0ea5e9;
     grid-area: sidebar;
     color: white;
     display: grid;
-    grid-template-rows: 1fr 3fr 4fr;
+    grid-template-rows: 12.5% 37.5% 50%;
     font-size: 24px;
     padding: 10% 0 0 10%;
     font-weight: bold;
@@ -47,6 +44,7 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    gap: 20px;
 }
 
 .navigation{
@@ -60,29 +58,65 @@ body {
     gap: 3%;
 }
 
+.navigation > div, 
+.branding > div {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
 .header{
     background-color: white;
     grid-area: header;
     display: grid;
     grid-template: 
-        [row1-start] "searchbar info1" 1fr [row1-end]
-        [row2-start] "info2 buttons" 1fr [row2-end]
-        / 2fr 1fr;
-        padding: 0 5% 0 3%;
+        [row1-start] "searchbar info1" 50% [row1-end]
+        [row2-start] "info2 buttons" 50% [row2-end]
+        / 66% 33%;
+        padding: 0 5% 1% 3%;
+        gap: 0px 50px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
-
-.header *{
-    border: 3px solid black;
+.header > * {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .searchbar {
     grid-area: searchbar;
-    display: flex;
-    align-items: center;
-
 }
 
+input[type='search'] {
+    width: 100%;
+    /* Remove default appearance */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-color: #e5e7eb;
+
+    padding: 10px 25px 10px 25px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    font-size: 18px;
+}
+
+
+/* Hide the clear button in WebKit browsers */
+input[type='search']::-webkit-search-cancel-button {
+    display: none;
+}
+
+/* Hide the clear button in Firefox */
+input[type='search']::-moz-search-cancel-button {
+    display: none;
+}
+
+
 .info1 {
+    justify-content: flex-end;
+    gap: 40px;
     grid-area: info1;
 }
 
@@ -90,34 +124,141 @@ body {
     grid-area: info2;
 }
 
+.info2 > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.info2 .greet {
+    font-weight: bold;
+} 
+
+.info2 .name {
+    font-weight: bold;
+    font-size: 24px;
+}
+
 .buttons {
+    justify-content: space-between;
     grid-area: buttons;
 }
 
+button {
+    padding: 10px 40px;
+    border: none;
+    background-color: #0ea5e9;
+    color: white;
+    font-size: 24px;
+    border-radius: 40px;
+}
+
 .main{
-    background-color: rgb(233, 233, 233);
+    background-color: #e5e7eb;
     grid-area: main;
     display: grid;
     grid-template: 
-        [row1-start] "projects announcements" 1fr [row1-end]
-        [row2-start] "projects trending" 1fr [row2-end]
-        /3fr 1fr;
-        padding: 3% 3% 5%;
-    gap: 2%;
+        [row1-start] "projects right-side" 50% [row1-end]
+        [row2-start] "projects right-side" 50% [row2-end]
+        /75% 25%;
+        padding: 2% 3% 5%;
+    gap: 1.5%;
 }
 
-.main * {
-    border: 1px solid blue;
+.card, .box {
+    background-color: white;
 }
+
 
 .projects {
     grid-area: projects;
 }
 
-.announcements {
-    grid-area: announcements;
+.head {
+    font-size: 24px;
+    font-weight: bold;
 }
 
-.trending {
-    grid-area: trending;
+.projectlist {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 49%));
+    grid-template-rows: repeat(auto-fit, minmax(150px, 33%));
+    gap: 2%;
+
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px 30px 30px;
+    border-radius: 10px;
+    box-shadow: 10px 0px #f59e0b inset;
+}
+
+.icon{
+    align-self: flex-end;
+    display: flex;
+    gap: 30px;
+}
+
+.card p, .box p {
+    color: #6b7280;
+}
+
+.cardhead {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.right-side{
+    grid-area: right-side;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.announcements .box {
+    padding: 10%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.announcements .content > div {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.announcements .box p {
+    font-size: 12px;
+}
+
+.announcements .content:nth-child(1){
+    padding-bottom: 20px;
+}
+
+.announcements .content:nth-child(2){
+    border-top: 1px solid #6b7280;
+    border-bottom: 1px solid #6b7280;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.announcements .content:nth-child(3){
+    padding-top: 20px;
+}
+
+.trending .box {
+    padding: 15px 45px 30px 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    justify-content: space-between;
+}
+
+.trending .content {
+    display: flex;
+    gap: 20px;
 }
