@@ -32,16 +32,92 @@ body {
 }
 
 .sidebar {
-    background-color: lightblue;
+    background-color: darkcyan;
     grid-area: sidebar;
+    color: white;
+    display: grid;
+    grid-template-rows: 1fr 3fr 4fr;
+    font-size: 24px;
+    padding: 10% 0 0 10%;
+    font-weight: bold;
+}
+
+.dashboard {
+    font-size: 32px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.navigation{
+    display: flex;
+    flex-direction: column;
+    gap: 3%;
+}
+.branding {
+    display: flex;
+    flex-direction: column;
+    gap: 3%;
 }
 
 .header{
     background-color: white;
     grid-area: header;
+    display: grid;
+    grid-template: 
+        [row1-start] "searchbar info1" 1fr [row1-end]
+        [row2-start] "info2 buttons" 1fr [row2-end]
+        / 2fr 1fr;
+        padding: 0 5% 0 3%;
+}
+
+.header *{
+    border: 3px solid black;
+}
+
+.searchbar {
+    grid-area: searchbar;
+    display: flex;
+    align-items: center;
+
+}
+
+.info1 {
+    grid-area: info1;
+}
+
+.info2 {
+    grid-area: info2;
+}
+
+.buttons {
+    grid-area: buttons;
 }
 
 .main{
-    background-color: lightgray;
+    background-color: rgb(233, 233, 233);
     grid-area: main;
+    display: grid;
+    grid-template: 
+        [row1-start] "projects announcements" 1fr [row1-end]
+        [row2-start] "projects trending" 1fr [row2-end]
+        /3fr 1fr;
+        padding: 3% 3% 5%;
+    gap: 2%;
+}
+
+.main * {
+    border: 1px solid blue;
+}
+
+.projects {
+    grid-area: projects;
+}
+
+.announcements {
+    grid-area: announcements;
+}
+
+.trending {
+    grid-area: trending;
 }
